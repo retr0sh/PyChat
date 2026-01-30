@@ -58,5 +58,4 @@ massage_box.place(x=10, y=360)
 send_btn = ttk.Button(text="Send", state="disabled", command=send_massage)
 send_btn.place(x=500, y=358)
 
-
 root.mainloop()
