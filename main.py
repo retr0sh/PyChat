@@ -34,6 +34,9 @@ def send_massage():
         massage_window.config(state="disabled")
         massage_box.delete(0, END)
 
+def enter_send_massage(event): send_massage()
+
+def enter_send_name(event): set_user_name()
 
 user_name = ""
 
@@ -56,6 +59,7 @@ user_name_label.place(x=290, y=5)
 
 user_name_box = ttk.Entry()
 user_name_box.place(x=370, y=5)
+user_name_box.bind('<Return>', enter_send_name)
 
 user_name_btn = ttk.Button(root, text="Save", command=set_user_name)
 user_name_btn.place(x=500, y=4)
@@ -63,9 +67,12 @@ user_name_btn.place(x=500, y=4)
 
 massage_window = Text(width=70, height=20, state="disabled")
 massage_window.place(x=10, y=30)
+massage_window.bind('<Motion>', lambda event: 'break')
+massage_window.bind('<Button>', lambda event: 'break')
 
 massage_box = ttk.Entry(state="disabled", width=80)
 massage_box.place(x=10, y=360)
+massage_box.bind('<Return>', enter_send_massage)
 
 send_btn = ttk.Button(text="Send", state="disabled", command=send_massage)
 send_btn.place(x=500, y=358)
@@ -76,5 +83,7 @@ online_users.place(x=615, y=5)
 
 online_users_box = Text(width=20, height=20, state="disabled")
 online_users_box.place(x=580, y=30)
+online_users_box.bind('<Motion>', lambda event: 'break')
+online_users_box.bind('<Button>', lambda event: 'break')
 
 root.mainloop()
