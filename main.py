@@ -17,6 +17,7 @@ def set_user_name():
 
         online_users_box.config(state="normal")
         online_users_box.insert(END, user_name + "\n")
+        online_users_box.see(END)
         online_users_box.config(state="disabled")
 
         user_name_box.config(state="disabled")
@@ -31,6 +32,7 @@ def send_massage():
     else:
         massage_window.config(state="normal")
         massage_window.insert(END, user_name + ": " + massage_box.get() + "\n")
+        massage_window.see(END)
         massage_window.config(state="disabled")
         massage_box.delete(0, END)
 
